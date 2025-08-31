@@ -270,6 +270,6 @@ footer p {
     }
 
     .ascii-heading, .ascii-header {
-        font-size: 4px; /* smaller for mobile */
+        font-size: 2px; /* smaller for mobile */
     }
 }
