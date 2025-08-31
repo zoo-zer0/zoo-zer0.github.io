@@ -46,6 +46,8 @@ header {
     margin: 0 auto;
     justify-content: center;
     flex-wrap: nowrap;
+    margin-bottom:5em;
+    margin-top:5em;
 }
 .profile-text{
     max-width:400px;
