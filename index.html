@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<title>Jooyoung's Portfolio</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+    body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fefefe;
+        color: #0f1c2c;
+        padding: 0;
+        margin:0;
+    }
+    .main{
+        margin-right:20%;
+        margin-left:20%;
+    }
+    /* ASCII header style */
+    .ascii-header {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 2.5px;
+        white-space: pre;
+        margin: 0em;
+        color: #e3e8ee;
+    }
+    header{
+        background-color: #3d536d;
+        padding: 1%;
+
+    }
+    .ascii-heading{
+        font-family:'Courier New', Courier, monospace;
+        font-size: 6px;
+        white-space: pre;
+        margin: 1em;
+        color: #3d536d;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        padding: 2em;
+        margin:10%;
+    }
+
+    .profile img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile-text h1 {
+        margin: 0;
+        font-size: 3.8em;
+        font-family:monospace;
+        font-weight: bolder;
+        color: #2c3c4f;
+
+    }
+
+    .profile-text p {
+        margin-top: 0.5em;
+        line-height: 1.4;
+    }
+
+    .projects {
+        padding: 2em;
+    }
+
+    .tags {
+        margin-bottom: 1em;
+    }
+
+    .tags button {
+        background: #e0e0e0;
+        border: none;
+        margin: 0 0.3em 0.3em 0;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        border-radius: 15px;
+        font-family:monospace;
+
+    }
+
+    .tags button.active {
+        background: #3d536d;
+        color: white;
+        font-weight: bold;
+    }
+    .tags button:hover {
+        background: #5a708c;
+        color: white;
+        font-weight: bold;
+    }
+
+/* Project grid container */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+@media (max-width: 1000px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+
+/* Make the <a> wrapper a block element for full clickable area */
+.project-grid a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%; /* make wrapper fill the grid cell */
+}
+
+/* Project card styling */
+.project-card {
+    width: 100%;
+    height: 100%; /* make card fill the wrapper */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* evenly space content */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Image styling */
+.project-card img {
+    width: 100%;
+    height: 180px;
+    display: block;
+    object-fit: cover; /* prevent stretching */
+}
+
+/* Title styling */
+.project-card h3 {
+    margin: 0.5em;
+    font-size: 1em;
+}
+
+/* Tag / description styling */
+.project-card p {
+    margin: 0.5em;
+    font-size: 0.9em;
+    color: #555;
+    font-family: monospace;
+}
+
+footer {
+    background-color: #3d536d;
+    color: #ffffff;
+    padding: 2em 1em;
+    text-align: center;
+}
+
+footer .ascii-header {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4px;
+    white-space: pre;
+    margin-bottom: 4em;
+    color: #e2e8ee;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-links {
+    margin-bottom: 0.5em;
+}
+.social-links a {
+    margin: 0 1em;
+    color: #cdd3da;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #f8f9f8; /* accent color on hover */
+}
+
+
+footer p {
+    font-size: 0.9em;
+    color: #cccccc;
+    font-family: 'Inter', sans-serif;
+
+}
+.main {
+    margin: 0 20%;
+    padding-top: 2em; /* space from top */
+    padding-bottom: 5em; /* space from bottom */
+}
+
+.profile,
+.projects {
+    padding-top:4em;
+    padding-bottom:5em;
+}
+
+
+
+</style>
+</head>
+<body>
+<header>
+<div class="ascii-header">
+░▒▓████████▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓████████▓▒░▒▓████████▓▒░▒▓███████▓▒░░▒▓████████▓▒░ 
+       ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+     ░▒▓██▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░    ░▒▓██▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+   ░▒▓██▓▒░  ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░  ░▒▓██▓▒░  ░▒▓██████▓▒░ ░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
+ ░▒▓██▓▒░    ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██▓▒░    ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓████████▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░ 
+                                                                                             
+
+</div>
+</header>
+<section class = "main">
+<section class="profile">
+  <img src="./img/pfp.png" alt="Jooyoung">
+  <div class="profile-text">
+    <h1>Hi there!<br>I'm Jooyoung ^_^</h1>
+    <p>I'm a junior at Seoul National University, majoring in Computer Science and Engineering, and an <strong>aspiring data journalist</strong>. I love exploring the intersection of <strong>storytelling</strong> and <strong>logic</strong>. Welcome to this little amalgamation of my personality.</p>
+  </div>
+</section>
+
+<div class="ascii-heading">
+░▒▓███████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░       ░▒▓█▓▒░▒▓████████▓▒░▒▓██████▓▒░▒▓████████▓▒░▒▓███████▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░  ░▒▓█▓▒░        
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░        ░▒▓█▓▒░  ░▒▓█▓▒░        
+░▒▓███████▓▒░░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓██████▓▒░░▒▓█▓▒░        ░▒▓█▓▒░   ░▒▓██████▓▒░  
+░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░        ░▒▓█▓▒░         ░▒▓█▓▒░ 
+░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░         ░▒▓█▓▒░ 
+░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓████████▓▒░▒▓██████▓▒░  ░▒▓█▓▒░  ░▒▓███████▓▒░  
+                                                                                                       
+</div>
+
+<section class="projects">
+  <div class="tags">
+    <button class="tag active" data-tag="all">#all</button>
+    <button class="tag" data-tag="data-visualization">#data-visualization</button>
+    <button class="tag" data-tag="writing">#writing</button>
+    <button class="tag" data-tag="interactive">#interactive</button>
+    <button class="tag" data-tag="computing">#computing</button>
+    <button class="tag" data-tag="builds">#builds</button>
+  </div>
+  
+  <div class="project-grid">
+    <a href="https://zoo-zer0.github.io/tickets-mid/" data-tags="data-visualization,interactive">
+    <div class="project-card">
+      <img src="./img/project/ticket.png" alt="Project 1">
+      <h3>가지도 않을 표를 사는 사람들</h3>
+      <p>#data-visualization #interactive</p>
+    </div>
+    </a>
+
+    <a href="https://zoo-zer0.github.io/project5/" data-tags="data-visualization,writing">
+    <div class="project-card">
+      <img src="./img/project/cold plunge.jpg" alt="Project 2">
+      <h3>Cold Plunges for Him: When the For You Page Isn't for Me</h3>
+      <p>#data-visualization #writing</p>
+    </div>
+    </a>
+
+    <a href="https://snuquill.com/article/157" data-tags="writing">
+    <div class="project-card">
+      <img src="./img/project/assembly.png" alt="Project 1">
+      <h3>The General Student Assembly votes to demand the resignation of President Yoon</h3>
+      <p>#writing</p>
+    </div>
+    </a>
+
+    <a href="https://snuquill-public-s3.s3.ap-northeast-2.amazonaws.com/magazine/82.pdf" data-tags="writing">
+    <div class="project-card">
+      <img src="./img/project/snuquill.png" alt="Project 2">
+      <h3>The SNU Quill 82nd Edition</h3>
+      <p>#writing</p>
+    </div> 
+    </a>  
+
+    <a href="https://snuquill.com/article/92" data-tags="writing">
+    <div class="project-card">
+      <img src="./img/project/proed.jpeg" alt="Project 2">
+      <h3>Going down the Pro-Ed pipeline</h3>
+      <p>#writing</p>
+    </div>
+    </a>
+    
+    <a href="https://2048-rho-tan.vercel.app/" data-tags="builds">
+    <div class="project-card">
+      <img src="./img/project/2048.png" alt="Project 2">
+      <h3>2048</h3>
+      <p>#builds</p>
+    </div>
+    </a>
+
+
+ 
+  </div>
+
+
+</section>
+
+<script>
+  const tags = document.querySelectorAll('.tag');
+  const projects = document.querySelectorAll('.project-grid a');
+
+  tags.forEach(tagBtn => {
+    tagBtn.addEventListener('click', () => {
+      // remove active from all buttons
+      tags.forEach(t => t.classList.remove('active'));
+      tagBtn.classList.add('active');
+
+      const selectedTag = tagBtn.dataset.tag;
+
+      projects.forEach(project => {
+        const projectTags = project.dataset.tags.split(',');
+        if (selectedTag === 'all' || projectTags.includes(selectedTag)) {
+          project.style.display = 'block';
+        } else {
+          project.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</section>
+<footer>
+  <div class="ascii-header">
+    ░▒▓███████▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓█▓▒░       ░▒▓███████▓▒░ 
+    ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░        
+    ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░        
+     ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓████████▓▒░▒▓█▓▒░       ░▒▓██████▓▒░  
+           ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░ 
+           ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░             ░▒▓█▓▒░ 
+    ░▒▓███████▓▒░ ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓███████▓▒░  
+  </div>
+
+ <div class="footer-content">
+  <div class="social-links">
+    <a href="https://www.instagram.com/jooyoung.hyun" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/joo-young-h-05aa52208/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/zoo-zer0" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+</div>
+
+
+</body>
+</html>
